@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #000000, #001f3f, #003366, #004080);
+  color: white;
+  margin: 0;
+  margin-top:10vh;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* stack boxes vertically */
+  align-items: center;
+  gap: 30px;              /* space between boxes */
+}
+
+/* Common box styling */
+.box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+  width: 80%;
+  max-width: 500px;
+}
+
+/* Inputs */
+input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #2c5364;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Input focus */
+input:focus {
+  border-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 10px #000000;
+}
+
+/* Button */
+.btn {
+  background: linear-gradient(135deg, #e6e6e6, #bfbfbf, #f2f2f2, #a6a6a6);
+  color: #000;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+  text-align: center;
+  height: 6vh;
+  width: 20vh;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Button container */
+.btn-container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+  <div class="container">
+    <!-- BMI Calculator Box -->
+    <div class="box">
+      <h1>BMI Calculator</h1>
+      <input type="number" id="weight" placeholder="Enter your weight in kgs">
+      <input type="number" id="height" placeholder="Enter your height in meters/cm">
+      <div class="btn-container">
+        <button class="btn" onclick="calculateBMI()">Submit</button>
+      </div>
+      <h2 id="result"></h2>
+    </div>
+
+    <!-- BMI Info Box -->
+    <div class="box">
+      <h2>What is BMI?</h2>
+      <p>
+        Body Mass Index (BMI) is a measure that uses your height and weight to determine if your weight is healthy. 
+        BMI below 18.5 is underweight, 18.5–24.9 is normal, 25–29.9 is overweight, and 30 or above is obese.
+      </p>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
+
+
