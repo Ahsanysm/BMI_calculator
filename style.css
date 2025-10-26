@@ -1,71 +1,155 @@
+/* Background and layout */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #000000, #001f3f, #003366, #004080);
-  color: white;
   margin: 0;
-  margin-top:10vh;
-  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: url("bg.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: flex-start; /* start from top */
+  padding-top: 50px;       /* spacing from top */
+  min-height: 100vh;
 }
 
-.container {
+.main-container {
   display: flex;
   flex-direction: column; /* stack boxes vertically */
-  align-items: center;
-  gap: 30px;              /* space between boxes */
+  gap: 30px;              /* space between BMI box and info box */
+  align-items: center;    /* center boxes horizontally */
 }
 
-/* Common box styling */
-.box {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 30px;
+/* Glassmorphic container */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(100px);
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
-  width: 80%;
-  max-width: 500px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  width: 320px;
+  text-align: center;
+  color: rgb(0, 0, 0);
 }
 
-/* Inputs */
-input {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #2c5364;
-  border-radius: 8px;
+.container h1 {
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Input field styling */
+.input-group {
+  position: relative;
+  width:80%;
+  margin: 15px 10px 10px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.926);
+  color: #000;
+  font-size: 14px;
+  border:1px solid black;
+}
+
+.input-group i {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000000;
   font-size: 16px;
 }
 
-/* Input focus */
-input:focus {
-  border-color: #ffffff;
-  outline: none;
-  box-shadow: 0 0 10px #000000;
-}
-
-/* Button */
+/* Button styling */
 .btn {
-  background: linear-gradient(135deg, #e6e6e6, #bfbfbf, #f2f2f2, #a6a6a6);
-  color: #000;
+  width: 70%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background: white;
+  color: #333;
+  font-weight: bold;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
-  text-align: center;
-  height: 6vh;
-  width: 20vh;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
+  background: #ddd;
   transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  
 }
 
-/* Button container */
-.btn-container {
-  display: flex;
-  justify-content: center;
+/* Result */
+#result {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #000000;
 }
+/* Add some spacing between boxes */
+.info-box {
+  margin-top: 30px;  /* space between BMI box and info box */
+  color: #000;       /* text color inside info box */
+}
+
+.info-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.info-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+            body {
+                padding-top: 20px; /* Less padding on top */
+                padding-bottom: 20px;
+            }
+
+            .main-container {
+                gap: 30px; /* Less space between boxes */
+                width:80%;
+            }
+
+            .container {
+                /* width: 90%; */ /* Already handled by max-width */
+                padding: 25px 20px; /* Less padding inside */
+                width:80%;
+               
+            }
+
+            .info-box {
+                /* width: 90%; */ /* Already handled by max-width */
+                padding: 25px;
+            }
+
+            .container h1 {
+                font-size: 1.6rem; /* Slightly smaller title */
+                margin-bottom: 20px;
+            }
+
+            .input-group {
+                width: 75%; /* Use full width */
+            }
+            .input-group i {
+                display: none; /* Hide the icon */
+            }
+
+
+            .btn {
+                width: 55%; /* Make button full width */
+            }
+
+            .info-box h2 {
+                font-size: 1.3rem;
+            }
+
+            .info-box p {
+                font-size: 0.95rem;
+            }
+        }
