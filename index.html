@@ -1,35 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css" >
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI Calculator</title>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+  <div class="main-container">
     <!-- BMI Calculator Box -->
-    <div class="box">
+    <div class="container">
       <h1>BMI Calculator</h1>
-      <input type="number" id="weight" placeholder="Enter your weight in kgs">
-      <input type="number" id="height" placeholder="Enter your height in meters/cm">
-      <div class="btn-container">
-        <button class="btn" onclick="calculateBMI()">Submit</button>
+      <div class="input-group">
+        <input type="number" id="weight" placeholder="Enter your weight in kgs" required>
+        <i class="fa-solid fa-weight-scale"></i>
       </div>
+      <div class="input-group">
+        <input type="number" id="height" placeholder="Enter your height in meters or cm" required>
+        <i class="fa-solid fa-ruler"></i>
+      </div>
+      <button class="btn" onclick="calculateBMI()">Submit</button>
       <h2 id="result"></h2>
     </div>
 
-    <!-- BMI Info Box -->
-    <div class="box">
-      <h2>What is BMI?</h2>
+    <!-- Info Box -->
+    <div class="container info-box">
+      <h2>About BMI</h2>
       <p>
-        Body Mass Index (BMI) is a measure that uses your height and weight to determine if your weight is healthy. 
-        BMI below 18.5 is underweight, 18.5–24.9 is normal, 25–29.9 is overweight, and 30 or above is obese.
+        Body Mass Index (BMI) is a number calculated using your weight and height. 
+        It helps you understand if your weight is underweight, normal, overweight, or obese. 
+        Maintaining a healthy BMI can reduce the risk of many health problems.
       </p>
     </div>
+  </div>
 </body>
-<script src="script.js"></script>
+
+  <script>
+    function calculateBMI() {
+      let weight = parseFloat(document.getElementById("weight").value);
+      let height = parseFloat(document.getElementById("height").value);
+
+      if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        document.getElementById("result").innerText = "⚠️ Please enter valid values!";
+        return;
+      }
+
+      // If height entered in cm, convert to meters
+      if (height > 3) height = height / 100;
+
+      // Calculate BMI
+      let bmi = weight / (height * height);
+      let msg = "";
+
+      if (bmi < 18.5) msg = "Underweight 😔";
+      else if (bmi < 24.9) msg = "Normal 😊";
+      else if (bmi < 29.9) msg = "Overweight 😐";
+      else msg = "Obese 😟";
+
+      document.getElementById("result").innerText = `Your BMI is ${bmi.toFixed(2)} (${msg})`;
+    }
+  </script>
+</body>
 </html>
-
-
